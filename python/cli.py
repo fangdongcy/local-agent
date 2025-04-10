@@ -23,7 +23,7 @@ class TaskCLI:
         title = input("请输入任务标题: ")
         description = input("请输入任务描述: ")
         due_date_str = input("请输入截止日期 (YYYY-MM-DD，可选): ")
-        priority = int(input("请输入优先级 (1-低, 2-中, 3-高): "))
+        priority = input("请输入优先级 (1-低, 2-中, 3-高): ")
 
         due_date = None
         if due_date_str:
