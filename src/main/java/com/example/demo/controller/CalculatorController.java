@@ -11,4 +11,20 @@ public class CalculatorController {
     public int add(@RequestParam int a, @RequestParam int b) {
         return a + b;
     }
+
+    @GetMapping("/multiply")
+    public int multiply(@RequestParam int a, @RequestParam int b) {
+        return a * b;
+    }
+
+    @GetMapping("/divide")
+    public double divide(@RequestParam int a, @RequestParam int b) {
+        return (double) a / b;
+    }
+
+    @GetMapping("/subtract")
+    public int subtract(@RequestParam int a, @RequestParam int b) {
+        return a - b;
+    }
+    
 } 
