@@ -5,6 +5,7 @@ from ..database.database import get_db
 from ..models.models import ProductReview, Product, User
 from ..schemas.schemas import ReviewCreate, Review as ReviewSchema
 from .auth import get_current_user
+from datetime import datetime
 
 router = APIRouter()
 
@@ -33,7 +34,8 @@ def create_review(
         product_id=product_id,
         user_id=current_user.id,
         rating=review.rating,
-        comment=review.comment
+        comment=review.comment,
+        review_date=datetime.utcnow()
     )
     db.add(db_review)
     db.commit()

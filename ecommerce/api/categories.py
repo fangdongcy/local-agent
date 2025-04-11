@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from typing import List
 from ..database.database import get_db
 from ..models.models import Category
-from ..schemas.schemas import CategoryCreate, Category as CategorySchema
+from ..schemas.schemas import CategoryCreate, Category as CategorySchema, Product as ProductSchema
 
 router = APIRouter()
 
@@ -32,4 +32,4 @@ def read_category_products(category_id: int, db: Session = Depends(get_db)):
     category = db.query(Category).filter(Category.id == category_id).first()
     if category is None:
         raise HTTPException(status_code=404, detail="Category not found")
-    return category.products 
+    return category.products_list 
